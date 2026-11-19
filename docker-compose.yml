@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: homework-db-cont
+    environment:
+      POSTGRES_DB: homework_db
+      POSTGRES_USER: homework_user
+      POSTGRES_PASSWORD: homework_pass
+    ports:
+      - "6543:5432"

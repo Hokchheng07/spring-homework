@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: homework-spring
+  datasource:
+    url: jdbc:postgresql://localhost:6543/postgres
+    username: homework_user
+    password: homework_pass
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate.hibernate.format_sql: true
+server:
+  port: 4002
