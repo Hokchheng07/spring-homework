@@ -33,6 +33,6 @@ public class Category {
     )
     private String name;
 
-    @OneToMany(mappedBy = "course")
-    private List<Course> course;
+    @OneToMany(mappedBy = "category")
+    private List<Course> courses;
 }

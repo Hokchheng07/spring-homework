@@ -2,6 +2,7 @@ package comspring.homeworkspring.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -23,13 +24,13 @@ public class Enrollment {
     @Id
     private Integer id;
 
-    private LocalDate enrolled_at;
+    private LocalDateTime enrolledAt;
 
-    private LocalDate payment_at;
+    private LocalDateTime paymentAt;
 
     private String paymentMethod;
 
-    private Boolean payment_status;
+    private Boolean paymentStatus;
 
     @ManyToOne
     private Course course;

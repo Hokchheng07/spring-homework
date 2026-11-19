@@ -2,6 +2,7 @@ package comspring.homeworkspring.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -16,12 +17,16 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "students")
+@Table(name = "student_profiles")
 
 public class Student {
 
     @Id
-    private String id;
+    @Column(
+        name = "user_id",
+        nullable = false
+    )
+    private String user_id;
 
     private String biography;
 
@@ -31,10 +36,10 @@ public class Student {
 
     private String major;
 
-    private String phoneNumber;
+    private String phone_number;
 
     private String university;
 
-    @OneToMany(mappedBy = "enrollment")
-    private List<Enrollment> enrollmentList;
+    @OneToMany(mappedBy = "student")
+    private List<Enrollment> enrollments;
 }

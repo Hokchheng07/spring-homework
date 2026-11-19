@@ -1,12 +1,16 @@
 package comspring.homeworkspring.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,6 +21,7 @@ import lombok.Setter;
 
 public class Video {
 
+    @Id
     private Integer id;
 
     private String duration;
@@ -35,5 +40,8 @@ public class Video {
 
     @ManyToOne
     private Course course;
+
+    @OneToMany(mappedBy = "video")
+    private List<Comment> comments;
 
 }

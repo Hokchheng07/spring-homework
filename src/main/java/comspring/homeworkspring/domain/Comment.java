@@ -1,15 +1,13 @@
 package comspring.homeworkspring.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,16 +20,19 @@ public class Comment {
     @Id
     private Integer id;
 
-    @Column(nullable = false)
-    private LocalDate created_at;
+    private LocalDateTime createdAt;
 
-    @Column(nullable = false)
+    private Boolean isDeleted;
+
     private String text;
 
-    @Column(nullable = false)
-    private Integer parent_id;
+    @ManyToOne
+    private Comment parent;
 
-    @Column(nullable = false)
-    private Integer video_id;
+    @OneToMany(mappedBy = "parent")
+    private List<Comment> replies;
+
+    @ManyToOne
+    private Video video;
 
 }

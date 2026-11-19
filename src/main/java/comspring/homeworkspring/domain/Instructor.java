@@ -1,8 +1,6 @@
 package comspring.homeworkspring.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,11 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "instructors")
+@Table(name = "instructor_profiles")
 
 public class Instructor {
 
-    private String id;
+    @Id
+    @Column(nullable = false)
+    private String user_id;
 
     private String biography;
 
@@ -27,10 +27,10 @@ public class Instructor {
 
     private String githubLink;
 
-    private String jobTitle;
+    private String job_title;
 
-    private String phoneNumber;
+    private String phone_number;
 
-    @OneToMany(mappedBy = "course")
-    private List<Course> course;
+    @OneToMany(mappedBy = "instructor")
+    private List<Course> courses;
 }
